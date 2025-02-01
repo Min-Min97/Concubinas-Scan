@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página de Manhwas</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+     
+    <header>
+
+        <!-- Botón de menú -->
+        <button id="menu-btn"> ≡ </button>
+        <h1>Concubinas Scan</h1>
+        <!-- Buscador -->
+        <div class="search-box">
+    <input type="text" placeholder="Buscar...">
+    <button>
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M15.5 14H14.71L14.43 13.73C15.41 12.59 16 11.11 16 9.5C16 5.91 13.09 3 9.5 3C5.91 3 3 5.91 3 9.5C3 13.09 5.91 16 9.5 16C11.11 16 12.59 15.41 13.73 14.43L14 14.71V15.5L19 20.49L20.49 19L15.5 14ZM9.5 14C7.01 14 5 11.99 5 9.5C5 7.01 7.01 5 9.5 5C11.99 5 14 7.01 14 9.5C14 11.99 11.99 14 9.5 14Z" fill="black"/>
+        </svg>
+    </button>
+        </div>
+    </header>
+
+        <!-- Menú lateral izquierdo -->
+    <aside id="sidebar">
+        <!-- Botón de cierre -->
+        <button id="close-btn" class="close-btn">×</button>
+        <nav>
+            <ul>
+                <li><a href="#actualización">Actualización</a></li>
+                <li><a href="#estrenos">Estrenos</a></li>
+                <li><a href="#favoritos">Favoritos</a></li>
+                <li><a href="#populares">Populares</a></li>
+            </ul>
+        </nav>
+    </aside>
+
+    <!-- Contenido principal -->
+    <main>
+        <!-- Columna de Estrenos, Actualización y Favoritos (3/4 de la pantalla) -->
+        <div class="main-content">
+
+            <!-- Sección de Actualización -->
+            <section id="actualizacion" class="scroll-section">
+                <h2>Actualización</h2>
+                <ul class="update-list">
+                    <li>
+                        <img src="Manhwa 9.jpg" alt="Manhwa 9">
+                        <div>
+                            <h3>Un camino desolado</h3>
+                            <p>Cap. 2</p>
+                        </div>
+                    </li>
+                    <li>
+                        <img src="Manhwa 10.jpg" alt="Manhwa 10">
+
+                        <div>
+                            <h3>Título del Manhwa 10</h3>
+                            <p>Descripción breve del Manhwa 10.</p>
+                        </div>
+                    </li>
+                    <li>
+                        <img src="Manhwa 12.jpg" alt="Manhwa 12">
+                        <div>
+                            <h3>Título del Manhwa 12</h3>
+                            <p>Descripción breve del Manhwa 12.</p>
+                        </div>
+                    </li>    
+                    <!-- Agrega más elementos aquí -->
+                </ul>
+            </section>
+
+            <!-- Sección de Estrenos -->
+            <section id="estrenos" class="scroll-section">
+                <h2>Estrenos</h2>
+                <ul class="estrenos-list">
+                    <li>
+                        <img src="https://via.placeholder.com/60x80" alt="Manhwa 1">
+                        <div>
+                            <h3>Título del Manhwa 1</h3>
+                            <p>Descripción breve del Manhwa 1.</p>
+                        </div>
+                    </li>
+                    <li>
+                        <img src="https://via.placeholder.com/60x80" alt="Manhwa 2">
+                        <div>
+                            <h3>Título del Manhwa 2</h3>
+                            <p>Descripción breve del Manhwa 2.</p>
+                        </div>
+                    </li>
+                    <!-- Agrega más elementos aquí -->
+                </ul>
+            </section>
+
+            <!-- Sección de Favoritos -->
+            <section id="favoritos" class="scroll-section">
+                <h2>Favoritos</h2>
+                <ul class="favoritos-list">
+                    <li>
+                        <img src="https://via.placeholder.com/60x80" alt="Manhwa 7">
+                        <div>
+                            <h3>Título del Manhwa 7</h3>
+                            <p>Descripción breve del Manhwa 7.</p>
+                        </div>
+                    </li>
+                    <li>
+                        <img src="https://via.placeholder.com/60x80" alt="Manhwa 8">
+                        <div>
+                            <h3>Título del Manhwa 8</h3>
+                            <p>Descripción breve del Manhwa 8.</p>
+                        </div>
+                    </li>
+                    <!-- Agrega más elementos aquí -->
+                </ul>
+            </section>
+        </div>
+
+        <!-- Columna de Populares (1/4 de la pantalla) -->
+        <aside id="popular-sidebar">
+            <h2>Populares</h2>
+            <ul class="popular-list">
+                <li>
+                    <img src="https://via.placeholder.com/60x80" alt="Manhwa 5">
+                    <div>
+                        <h3>Título del Manhwa 5</h3>
+                        <p>Descripción breve del Manhwa 5.</p>
+                    </div>
+                </li>
+                <li>
+                    <img src="https://via.placeholder.com/60x80" alt="Manhwa 6">
+                    <div>
+                        <h3>Título del Manhwa 6</h3>
+                        <p>Descripción breve del Manhwa 6.</p>
+                    </div>
+                </li>
+                <!-- Agrega más elementos aquí -->
+            </ul>
+        </aside>
+    </main>
+
+    <footer>
+        <p>Sean bienvenidos a nuestro Imperio Otomano.</p>
+        <p>© 2024 Página de Manhwas. Todos los derechos reservados.</p>
+    </footer>
+
+    <!-- JavaScript para manejar el menú -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const menuBtn = document.getElementById('menu-btn');
+            const sidebar = document.getElementById('sidebar');
+            const closeBtn = document.getElementById('close-btn');
+
+            // Abrir/cerrar el menú al hacer clic en el botón de menú
+            menuBtn.addEventListener('click', function() {
+                sidebar.classList.toggle('active');
+            });
+
+            // Cerrar el menú al hacer clic en el botón de cierre
+            closeBtn.addEventListener('click', function() {
+                sidebar.classList.remove('active');
+            });
+
+            // Cerrar el menú al hacer clic fuera de él
+            document.addEventListener('click', function(event) {
+                if (!sidebar.contains(event.target) && !menuBtn.contains(event.target)) {
+                    sidebar.classList.remove('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
