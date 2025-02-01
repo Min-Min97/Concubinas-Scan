@@ -1,0 +1,14 @@
+{
+    "Un camino desolado": {
+        "cover": "images/Manhwa_9.jpg",
+        "title": "Un camino desolado",
+        "synopsis": "Esta es la sinopsis del Manhwa 1...",
+        "chapters": ["Capítulo 1", "Capítulo 2", "Capítulo 3"]
+    },
+    "El jardín secreto": {
+        "cover": "images/Manhwa_10.jpg",
+        "title": "El jardín secreto",
+        "synopsis": "Una historia de romance y misterio...",
+        "chapters": ["Capítulo 1", "Capítulo 2", "Capítulo 3", "Capítulo 4"]
+    }
+}

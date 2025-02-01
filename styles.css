@@ -79,7 +79,6 @@ header h1 {
     color: #888888; /* Color del ícono de búsqueda */
     cursor: pointer;
     padding: 0 5px; /* Espaciado interno */
-
 }
 
 /* Menú lateral retráctil */
@@ -282,6 +281,99 @@ main {
     }
 }
 
+/* Estilos para la sección de detalles del manhwa */
+#manhwa-details {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    color: #d4af37;
+    padding: 20px;
+    overflow-y: auto;
+    z-index: 1000;
+    display: none; /* Oculto por defecto */
+}
+
+#manhwa-details.visible {
+    display: block; /* Mostrar cuando tenga la clase "visible" */
+}
+
+#manhwa-details .manhwa-info {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+#manhwa-details #manhwa-cover {
+    width: 200px;
+    height: 300px;
+    object-fit: cover;
+    border: 3px solid #8b7355;
+    border-radius: 10px;
+}
+
+#manhwa-details #manhwa-title {
+    font-family: 'Cinzel', serif;
+    font-size: 2rem;
+    margin: 10px 0;
+}
+
+#manhwa-details #manhwa-synopsis {
+    font-size: 1rem;
+    color: #fff;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+#manhwa-details .chapters-list {
+    background-color: #2a2a2a;
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 600px;
+    margin: 20px auto;
+}
+
+#manhwa-details .chapters-list h3 {
+    font-family: 'Cinzel', serif;
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+#manhwa-details .chapters-list ul {
+    list-style: none;
+    padding: 0;
+}
+
+#manhwa-details .chapters-list ul li {
+    background-color: #1a1a1a;
+    padding: 10px;
+    margin: 5px 0;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#manhwa-details .chapters-list ul li:hover {
+    background-color: #8b7355;
+}
+
+#close-details-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background-color: #8b7355;
+    color: white;
+    border: none;
+    font-size: 1.5rem;
+    padding: 10px 15px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+#close-details-btn:hover {
+    background-color: #d4af37;
+}
+
 /* Ajustes para móviles */
 @media (max-width: 768px) {
     main {
@@ -295,4 +387,3 @@ main {
     #popular-sidebar {
         display: none; /* Oculta la sección de Populares en móviles */
     }
-}

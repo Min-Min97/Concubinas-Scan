@@ -7,24 +7,23 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-     
-    <header>
 
+    <header>
         <!-- Botón de menú -->
         <button id="menu-btn"> ≡ </button>
         <h1>Concubinas Scan</h1>
         <!-- Buscador -->
         <div class="search-box">
-    <input type="text" placeholder="Buscar...">
-    <button>
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M15.5 14H14.71L14.43 13.73C15.41 12.59 16 11.11 16 9.5C16 5.91 13.09 3 9.5 3C5.91 3 3 5.91 3 9.5C3 13.09 5.91 16 9.5 16C11.11 16 12.59 15.41 13.73 14.43L14 14.71V15.5L19 20.49L20.49 19L15.5 14ZM9.5 14C7.01 14 5 11.99 5 9.5C5 7.01 7.01 5 9.5 5C11.99 5 14 7.01 14 9.5C14 11.99 11.99 14 9.5 14Z" fill="black"/>
-        </svg>
-    </button>
+            <input type="text" placeholder="Buscar...">
+            <button>
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M15.5 14H14.71L14.43 13.73C15.41 12.59 16 11.11 16 9.5C16 5.91 13.09 3 9.5 3C5.91 3 3 5.91 3 9.5C3 13.09 5.91 16 9.5 16C11.11 16 12.59 15.41 13.73 14.43L14 14.71V15.5L19 20.49L20.49 19L15.5 14ZM9.5 14C7.01 14 5 11.99 5 9.5C5 7.01 7.01 5 9.5 5C11.99 5 14 7.01 14 9.5C14 11.99 11.99 14 9.5 14Z" fill="black"/>
+                </svg>
+            </button>
         </div>
     </header>
 
-        <!-- Menú lateral izquierdo -->
+    <!-- Menú lateral izquierdo -->
     <aside id="sidebar">
         <!-- Botón de cierre -->
         <button id="close-btn" class="close-btn">×</button>
@@ -56,7 +55,6 @@
                     </li>
                     <li>
                         <img src="Manhwa 10.jpg" alt="Manhwa 10">
-
                         <div>
                             <h3>Título del Manhwa 10</h3>
                             <p>Descripción breve del Manhwa 10.</p>
@@ -138,13 +136,63 @@
                 </li>
                 <!-- Agrega más elementos aquí -->
             </ul>
-        </aside>
+        </section>
+
+        <!-- Sección de detalles del manhwa -->
+        <section id="manhwa-details" class="hidden">
+            <button id="close-details-btn">×</button>
+            <div class="manhwa-info">
+                <img id="manhwa-cover" src="" alt="Portada del manhwa">
+                <h2 id="manhwa-title">Título del Manhwa</h2>
+                <p id="manhwa-synopsis">Sinopsis del manhwa...</p>
+            </div>
+            <div class="chapters-list">
+                <h3>Capítulos</h3>
+                <ul id="chapters">
+                    <!-- Los capítulos se cargarán dinámicamente -->
+                </ul>
+            </div>
+        </section>
     </main>
 
     <footer>
         <p>Sean bienvenidos a nuestro Imperio Otomano.</p>
         <p>© 2024 Página de Manhwas. Todos los derechos reservados.</p>
     </footer>
+
+    <!-- Formulario de comentarios -->
+    <form id="commentForm">
+        <input type="text" id="name" placeholder="Tu nombre" required>
+        <textarea id="comment" placeholder="Escribe tu comentario" required></textarea>
+        <button type="submit">Enviar</button>
+    </form>
+    <div id="comments"></div>
+
+    <!-- Botón de Me gusta -->
+    <button id="likeButton">Me gusta</button>
+    <span id="likeCount">0</span>
+
+    <!-- Firebase y JavaScript -->
+    <script type="module">
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-app.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-analytics.js";
+
+        // Your web app's Firebase configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyDJ9e9LtyKVbwZlfFYN9FvpOCeobWin6wo",
+            authDomain: "concubinas-scan-c3fe7.firebaseapp.com",
+            projectId: "concubinas-scan-c3fe7",
+            storageBucket: "concubinas-scan-c3fe7.appspot.com",
+            messagingSenderId: "746832829709",
+            appId: "1:746832829709:web:7e93abb53b813b5b4f6444",
+            measurementId: "G-SJH9JE8TRR"
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const analytics = getAnalytics(app);
+    </script>
 
     <!-- JavaScript para manejar el menú -->
     <script>
@@ -169,7 +217,34 @@
                     sidebar.classList.remove('active');
                 }
             });
+
+            // Manejar el formulario de comentarios
+            const commentForm = document.getElementById('commentForm');
+            const commentsContainer = document.getElementById('comments');
+
+            commentForm.addEventListener('submit', function(event) {
+                event.preventDefault();
+                const name = document.getElementById('name').value;
+                const comment = document.getElementById('comment').value;
+
+                const commentElement = document.createElement('div');
+                commentElement.innerHTML = `<strong>${name}:</strong> ${comment}`;
+                commentsContainer.appendChild(commentElement);
+
+                // Limpiar el formulario
+                commentForm.reset();
+            });
+
+            // Manejar el botón de Me gusta
+            const likeButton = document.getElementById('likeButton');
+            const likeCount = document.getElementById('likeCount');
+            let likes = 0;
+
+            likeButton.addEventListener('click', function() {
+                likes++;
+                likeCount.textContent = likes;
+            });
         });
-    </script>
+    </script src="script.js"></script>
 </body>
 </html>
