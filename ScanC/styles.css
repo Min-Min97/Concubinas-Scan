@@ -1,0 +1,298 @@
+/* Estilos generales */
+body {
+    font-family: 'Amiri', serif;
+    margin: 0;
+    padding: 0;
+    background-color: #1a1a1a; /* Fondo oscuro */
+    color: #d4af37; /* Texto dorado */
+}
+
+/* Evita la barra de desplazamiento horizontal */
+html, body {
+    overflow-x: hidden;
+}
+
+/* Encabezado */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background: url('patron-arabe.jpg') no-repeat center center;
+    background-size: cover;
+    color: #fff;
+    border-bottom: 7px solid #8b7355;
+}
+
+header h1 {
+    font-family: 'Cinzel', serif; /* Fuente elegante */
+    font-size: 2rem; /* Tamaño de la fuente */
+    color: #d4af37; /* Color dorado */
+    margin: 0; /* Eliminar margen por defecto */
+    padding: 10px; /* Espaciado interno */
+    text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5); /* Sombra de texto */
+    -webkit-text-stroke: 1px navy blue;
+    text-stroke: 1px navy blue;
+}
+
+/* Botón de menú */
+#menu-btn {
+    background-color: #8b7355;
+    color: white;
+    border: none;
+    font-size: 1.5rem;
+    padding: 10px 15px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-left: 20px; /* Espacio a la izquierda */
+}
+
+#menu-btn:hover {
+    background-color: #d4af37;
+}
+
+/* Buscador */
+.search-box {
+    display: flex;
+    align-items: center;
+    background: #2a2a2a;
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid #8b7355;
+    margin-right: 20px; /* Espacio a la derecha */
+    width: 200px; /* Ancho total del buscador (ajusta según necesites) */
+}
+
+.search-box input {
+    background: transparent;
+    border: none;
+    color: white;
+    padding: 5px;
+    outline: none;
+    flex: 1; /* Hace que el input ocupe todo el espacio disponible */
+    width: 100%; /* Asegura que el input ocupe el ancho completo */
+}
+
+.search-box button {
+    background: none;
+    border: none;
+    color: #888888; /* Color del ícono de búsqueda */
+    cursor: pointer;
+    padding: 0 5px; /* Espaciado interno */
+
+}
+
+/* Menú lateral retráctil */
+#sidebar {
+    position: fixed;
+    top: 0;
+    left: -360px; /* Oculto por defecto */
+    width: 250px;
+    height: 100vh;
+    background-color: #2a2a2a;
+    padding: 20px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
+    transition: left 0.3s ease;
+    z-index: 1000; /* Para asegurarse de que no se superponga */
+}
+
+#sidebar.active {
+    left: 0;
+}
+
+#sidebar nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+#sidebar nav ul li {
+    margin: 10px 0; /* Reducir el margen entre elementos */
+    border: 2px solid #d4af37;
+    border-radius: 5px;
+    padding: 8px; /* Reducir el padding */
+    text-align: center;
+}
+
+#sidebar nav ul li a {
+    color: #d4af37;
+    text-decoration: none;
+    font-size: 1rem; /* Reducir el tamaño de la fuente */
+    display: block;
+}
+
+#sidebar nav ul li a:hover {
+    color: #b8860b;
+}
+
+/* Ajustar el margen superior del primer elemento */
+#sidebar nav ul li:first-child {
+    margin-top: 40px; /* Aumentar el margen superior */
+}
+
+/* Ajuste para evitar que main sea empujado */
+main {
+    display: flex;
+    padding: 20px;
+    gap: 20px; /* Espacio entre las columnas */
+}
+
+/* Columna de Estrenos, Actualización y Favoritos (3/4 de la pantalla) */
+.main-content {
+    flex: 3; /* Ocupa 3/4 del espacio */
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Espacio entre las secciones */
+}
+
+/* Columna de Populares (1/4 de la pantalla) */
+#popular-sidebar {
+    flex: 1; /* Ocupa 1/4 del espacio */
+    background-color: #2a2a2a;
+    padding: 20px;
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.5);
+}
+
+/* Estilos para las listas */
+.update-list,
+.favoritos-list,
+.estrenos-list {
+    list-style: none;
+    padding: 0;
+    display: flex; /* Cambiamos a flex para scroll horizontal */
+    gap: 20px; /* Espacio entre elementos */
+    overflow-x: auto; /* Activar scroll horizontal */
+    padding-bottom: 10px; /* Espacio para el scroll */
+    scrollbar-width: thin; /* Estilo de la barra de scroll (opcional) */
+    scrollbar-color: #8b7355 #2a2a2a; /* Color de la barra de scroll (opcional) */
+}
+
+.update-list li,
+.favoritos-list li,
+.estrenos-list li {
+    flex: 0 0 auto; /* Evita que los elementos se estiren */
+    width: 200px; /* Ancho más grande para cada elemento */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #2a2a2a;
+    border-radius: 10px;
+    overflow: hidden;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.update-list li img,
+.favoritos-list li img,
+.estrenos-list li img {
+    width: 100%;
+    height: 150px; /* Altura fija para las imágenes */
+    object-fit: cover; /* Asegura que la imagen cubra el espacio sin deformarse */
+    border-bottom: 3px solid #8b7355;
+}
+
+.update-list li h3,
+.favoritos-list li h3,
+.estrenos-list li h3 {
+    font-family: 'Cinzel', serif;
+    font-size: 1rem; /* Tamaño de fuente más grande */
+    color: #d4af37;
+    margin: 15px 0 10px; /* Más espacio alrededor del título */
+}
+
+.update-list li p,
+.favoritos-list li p,
+.estrenos-list li p {
+    font-size: 1rem;
+    color: #fff;
+    margin: 0 10px 15px; /* Más espacio alrededor de la descripción */
+}
+
+/* Estilos para la lista de Populares (scroll vertical) */
+.popular-list {
+    list-style: none;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+    max-height: 600px;
+    overflow-y: auto;
+    padding-right: 10px;
+}
+
+.popular-list li {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #2a2a2a;
+    border-radius: 10px;
+    overflow: hidden;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.popular-list li img {
+    width: 100%;
+    height: auto;
+    border-bottom: 3px solid #8b7355;
+}
+
+.popular-list li h3 {
+    font-family: 'Cinzel', serif;
+    font-size: 1.1rem;
+    color: #d4af37;
+    margin: 10px 0;
+}
+
+.popular-list li .chapter {
+    font-size: 0.9rem;
+    color: #fff;
+    background-color: #8b7355;
+    border-radius: 5px;
+    padding: 5px 10px;
+    margin-bottom: 10px;
+    display: inline-block;
+}
+
+@media (max-width: 768px) {
+    main {
+        flex-direction: column; /* Cambia a una columna en móviles */
+    }
+
+    .main-content {
+        flex: 1; /* Ocupa todo el ancho en móviles */
+    }
+
+    #popular-sidebar {
+        display: none; /* Oculta la sección de Populares en móviles */
+    }
+}
+
+/* Ajustes para móviles */
+@media (max-width: 768px) {
+    main {
+        flex-direction: column; /* Cambia a una columna en móviles */
+    }
+
+    .main-content {
+        flex: 1; /* Ocupa todo el ancho en móviles */
+    }
+
+    #popular-sidebar {
+        display: none; /* Oculta la sección de Populares en móviles */
+    }
+}
+
+/* Ajustes para móviles */
+@media (max-width: 768px) {
+    main {
+        flex-direction: column; /* Cambia a una columna en móviles */
+    }
+
+    .main-content {
+        flex: 1; /* Ocupa todo el ancho en móviles */
+    }
+
+    #popular-sidebar {
+        display: none; /* Oculta la sección de Populares en móviles */
+    }
+}
